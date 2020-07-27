@@ -33,6 +33,7 @@
 		@include('includes.header')
   
 <div class="container">  
+<div class="alert alert-info">Note: Click on team to view its players</div>
   <table class="table table-hover table-striped">
   <tbody>
   <thead>
@@ -70,6 +71,7 @@
 			<th>100`s</th>
           </thead>
           <tbody>
+		 @if (count($value->players) > 0)
 		   @foreach($value->players as $index => $player)
             <tr>
 				<td>{{$index+1}}</td>
@@ -84,6 +86,11 @@
 				<td>{{$player->history['hundreds']}}</td>
             </tr>
            @endforeach
+		   @else
+			<tr>
+				<td align="center" colspan="10"> No Players Added</td>
+			</tr>
+			@endif
           </tbody>
         </table>
       </td>

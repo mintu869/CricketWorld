@@ -192,7 +192,6 @@ function saveMatchResult(){
 		var team_id_1 = $('input[type="hidden"][name="team_1_id"]').val();
 		var team_id_2 = $('input[type="hidden"][name="team_2_id"]').val();
 		var match_id = $('input[name="match_id"]').val();
-		alert(match_id);
 		switch(result) {
 		case 'Win and loss':
 			if(team_1_runs==team_2_runs){
@@ -200,7 +199,7 @@ function saveMatchResult(){
 				$("#msgSetmatch").addClass("alert-danger");
 				$("#msgSetmatch").text("Team1 and Team 2 score should be different !");
 				setTimeout(function(){ 									
-					$("#msg").fadeOut("slow");
+					$("#msgSetmatch").fadeOut("slow");
 				}, 3000);
 				return false;
 			}
@@ -210,7 +209,7 @@ function saveMatchResult(){
 					$("#msgSetmatch").addClass("alert-danger");
 					$("#msgSetmatch").text("Team 1 score must be greater than team 2 !");
 					setTimeout(function(){ 									
-						$("#msg").fadeOut("slow");
+						$("#msgSetmatch").fadeOut("slow");
 					}, 3000);
 					return false;
 				}
@@ -220,7 +219,7 @@ function saveMatchResult(){
 					$("#msgSetmatch").addClass("alert-danger");
 					$("#msgSetmatch").text("Team 2 score must be greater than team 1 !");
 					setTimeout(function(){ 									
-						$("#msg").fadeOut("slow");
+						$("#msgSetmatch").fadeOut("slow");
 					}, 3000);
 					return false;
 				}
@@ -232,7 +231,7 @@ function saveMatchResult(){
 					$("#msgSetmatch").addClass("alert-danger");
 					$("#msgSetmatch").text("Team 1 and team 2 score must be same !");
 					setTimeout(function(){ 									
-						$("#msg").fadeOut("slow");
+						$("#msgSetmatch").fadeOut("slow");
 					}, 3000);
 				return false;
 			}
@@ -308,7 +307,7 @@ function getResultFields(obj){
 		@include('includes.header')
 		 
 <div class="container"> 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addMatch" data-whatever="@mdo">Add Match</button> 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addMatch" style="float:right;margin:5px;">Add Match</button> 
  <!-- Material form contact -->
 <div class="modal fade" id="addMatch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -401,12 +400,12 @@ function getResultFields(obj){
           </div>
 		    <div class="form-group result">
             <label for="message-text" class="col-form-label">Team 1 Runs:</label>
-            <input type="text" name="team_1_runs" onChange="validate('setMatchResult',this)" class="form-control " />
+            <input type="number" name="team_1_runs" min="1" onChange="validate('setMatchResult',this)" class="form-control " />
 			<span class="error"></span>
           </div>
 		   <div class="form-group result">
             <label for="message-text" class="col-form-label">Team 2 Runs:</label>
-            <input type="text" name="team_2_runs" onChange="validate('setMatchResult',this)" class="form-control " />
+            <input type="number" name="team_2_runs" min="2" onChange="validate('setMatchResult',this)" class="form-control " />
 			<span class="error"></span>
           </div>
         </form>
