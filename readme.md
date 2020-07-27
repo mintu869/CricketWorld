@@ -20,3 +20,8 @@ Matchs Page would List all matches of teams or selected Team.
 	**Set Result Button will open a modal popup, which contains status for the match, match teams, runs of both the teams.
 	**Set Result modal info will be manipulated according to match status.
 	
+## DATABASE
+	** Migration have been created .
+	** DATABASE for demo data and structure could be found in database\SQLFILES\cricket_world.sql
+	
+	
