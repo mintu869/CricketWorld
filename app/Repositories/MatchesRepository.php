@@ -71,8 +71,21 @@ class MatchesRepository
 			}else{
 				$resp['status'] = 0;
 				$resp['msg'] = "Only one team available for $date, please choose another date !";
-			}			
-			$resp['venuesOptions'] = $venuesOptions;
+			}
+			if(count($venuesQuery) > 0){
+				if(is_array($teamsQuery) && !empty($teamsQuery)){
+					foreach($teamsQuery as $key=>$value){
+						$teamsOptions .= "<option value=\"".$value->id."\">".$value->name."</option>";
+					}
+				$resp['status'] = 1;
+				$resp['msg'] = "";
+				$resp['venuesOptions'] = $venuesOptions;
+				}
+			}else{
+				$resp['status'] = 0;
+				$resp['msg'] = "No venue available for $date, please choose another date !";
+			}
+			
 		} 
 		return $resp;
 	}

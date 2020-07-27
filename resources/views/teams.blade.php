@@ -42,6 +42,7 @@
 		<th>Logo</th>
 		<th>Team Name</th>
 		<th>Club</th>
+		<th>Points</th>
 		<th>Matches</th>
     </tr>
   </thead>
@@ -52,6 +53,7 @@
        <td><img src="{{ URL::to('/') }}/images/{{ $value->logo }}" height="100" /></td>
        <td valign ="center">{{ $value->name }}</td>
        <td valign ="center">{{ $value->club }}</td>
+       <td valign ="center">{{ $value->points }}</td>
        <td valign ="center"><a href="{{url('/team-matches', [$value->id])}}">View matches</a></td>
     </tr>
     <tr class="team">

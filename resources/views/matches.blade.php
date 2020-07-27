@@ -91,7 +91,7 @@
 							$("#msg").text("");				
 							$("#msg").fadeOut("slow");
 							window.location.href = "{{url()->current()}}"; 
-						}, 1000);
+						}, 2000);
 						
 					}
 					else{
